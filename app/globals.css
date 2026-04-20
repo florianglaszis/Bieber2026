@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-orange-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100;
+  }
+
+  /* Increase touch targets on mobile */
+  button,
+  a {
+    @apply min-h-[44px];
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-white dark:bg-gray-800 shadow-sm border border-orange-100 dark:border-gray-700 p-4;
+  }
+
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-widest text-orange-400 dark:text-orange-300 mb-3;
+  }
+}
