@@ -1,6 +1,7 @@
 import { trip } from "@/data/trip";
 import { MapPin, CalendarDays } from "lucide-react";
 import Image from "next/image";
+import Countdown from "@/components/Countdown";
 
 function formatDate(isoDate: string) {
   return new Date(isoDate).toLocaleDateString("de-DE", {
@@ -42,6 +43,7 @@ export default function HomePage() {
             {formatDate(trip.departureDate)} — {formatDate(trip.returnDate)}
           </span>
         </div>
+        <Countdown />
       </div>
     </div>
   );
