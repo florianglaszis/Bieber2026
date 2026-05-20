@@ -37,7 +37,7 @@ export default function RulesPage() {
       <div>
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Regeln</h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-          {rules.length} Regeln · Unwissenheit schützt vor Strafe nicht
+          6 Gebote für maximalen Spaß, minimale Ausfälle und eine halbwegs funktionierende Gruppe
         </p>
       </div>
 
