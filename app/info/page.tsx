@@ -7,9 +7,9 @@ export default function InfoPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Useful Info</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Nützliche Infos</h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-          Emergency numbers, tips, and packing list
+          Notrufnummern, Tipps und Packliste
         </p>
       </div>
 
@@ -17,7 +17,7 @@ export default function InfoPage() {
       <section>
         <p className="section-title flex items-center gap-1.5">
           <Phone size={12} />
-          Emergency contacts
+          Notfallkontakte
         </p>
         <div className="card divide-y divide-orange-50 dark:divide-gray-700">
           {info.emergencyContacts.map((c) => (
@@ -45,7 +45,7 @@ export default function InfoPage() {
                        active:scale-95 transition-all duration-150 cursor-pointer"
           >
             <MessageCircle size={24} className="text-green-500" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-200">Group Chat</span>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-200">Gruppenchat</span>
           </a>
         )}
         {info.expensesLink && (
@@ -68,7 +68,7 @@ export default function InfoPage() {
       <section>
         <p className="section-title flex items-center gap-1.5">
           <Lightbulb size={12} />
-          Local tips
+          Lokale Tipps
         </p>
         <div className="card space-y-3">
           {info.localTips.map((tip, i) => (
@@ -86,7 +86,7 @@ export default function InfoPage() {
       <section>
         <p className="section-title flex items-center gap-1.5">
           <Package size={12} />
-          Packing list
+          Packliste
         </p>
         <div className="space-y-3">
           {info.packingList.map((group) => (

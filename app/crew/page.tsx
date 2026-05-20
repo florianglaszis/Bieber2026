@@ -5,7 +5,7 @@ import { Phone, Clock, Leaf, StickyNote } from "lucide-react";
 function formatArrival(isoDateTime?: string) {
   if (!isoDateTime) return null;
   const d = new Date(isoDateTime);
-  return d.toLocaleString("en-GB", {
+  return d.toLocaleString("de-DE", {
     weekday: "short",
     day: "numeric",
     month: "short",
@@ -62,7 +62,7 @@ function PersonCard({ person }: { person: Person }) {
           className="flex-shrink-0 w-10 h-10 rounded-xl bg-orange-100 dark:bg-orange-900/30
                      flex items-center justify-center text-orange-500 dark:text-orange-400
                      hover:bg-orange-200 dark:hover:bg-orange-800/40 transition-colors"
-          aria-label={`Call ${person.name}`}
+          aria-label={`${person.name} anrufen`}
         >
           <Phone size={16} />
         </a>
@@ -77,10 +77,10 @@ export default function CrewPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">The Crew</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Die Crew</h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-          {trip.crew.length} people · {dietaryCount} dietary requirement
-          {dietaryCount !== 1 ? "s" : ""}
+          {trip.crew.length} Personen · {dietaryCount}{" "}
+          {dietaryCount === 1 ? "Ernährungshinweis" : "Ernährungshinweise"}
         </p>
       </div>
 

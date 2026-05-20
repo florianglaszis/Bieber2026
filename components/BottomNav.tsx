@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, CalendarDays, BedDouble, Users, Info } from "lucide-react";
+import { Home, CalendarDays, BedDouble, ScrollText } from "lucide-react";
 
 const nav = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/schedule", label: "Schedule", icon: CalendarDays },
-  { href: "/stay", label: "Stay", icon: BedDouble },
-  { href: "/crew", label: "Crew", icon: Users },
-  { href: "/info", label: "Info", icon: Info },
+  { href: "/", label: "Start", icon: Home },
+  { href: "/schedule", label: "Programm", icon: CalendarDays },
+  { href: "/stay", label: "Unterkunft", icon: BedDouble },
+  { href: "/rules", label: "Regeln", icon: ScrollText },
 ];
 
 export default function BottomNav() {

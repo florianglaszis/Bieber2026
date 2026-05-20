@@ -1,9 +1,11 @@
 export interface Activity {
   time: string;
   title: string;
-  location: string;
+  location?: string;
+  location2?: string;
   notes?: string;
   mapLink?: string;
+  mapLink2?: string;
 }
 
 export interface Day {

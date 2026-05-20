@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import BottomNav from "@/components/BottomNav";
+import SOSButton from "@/components/SOSButton";
 import { trip } from "@/data/trip";
 
 export const metadata: Metadata = {
@@ -32,12 +33,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="de">
       <head>
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
       </head>
       <body className="flex flex-col min-h-screen">
-        <main className="flex-1 pb-20 max-w-2xl mx-auto w-full px-4 pt-6">{children}</main>
+        <main className="flex-1 pb-36 max-w-2xl mx-auto w-full px-4 pt-6">{children}</main>
+        <SOSButton />
         <BottomNav />
       </body>
     </html>

@@ -1,13 +1,5 @@
 import { trip } from "@/data/trip";
-import {
-  MapPin,
-  Wifi,
-  Phone,
-  ExternalLink,
-  LogIn,
-  LogOut,
-  StickyNote,
-} from "lucide-react";
+import { MapPin, LogIn, LogOut } from "lucide-react";
 
 const { accommodation: a } = trip;
 
@@ -50,7 +42,7 @@ export default function StayPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Where we stay</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Unterkunft</h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{a.name}</p>
       </div>
 
@@ -63,70 +55,46 @@ export default function StayPage() {
 
       {/* Check-in / out */}
       <div className="card">
-        <p className="section-title">Check-in & out</p>
-        <Row icon={<LogIn size={16} />} label="Check-in from" value={a.checkIn} />
-        <Row icon={<LogOut size={16} />} label="Check-out by" value={a.checkOut} />
+        <p className="section-title">Check-in & Check-out</p>
+        <Row icon={<LogIn size={16} />} label="Check-in ab" value={a.checkIn} />
+        <Row icon={<LogOut size={16} />} label="Check-out bis" value={a.checkOut} />
       </div>
 
       {/* Location */}
       <div className="card">
-        <p className="section-title">Location</p>
+        <p className="section-title">Lage</p>
         <Row
           icon={<MapPin size={16} />}
-          label="Address"
+          label="Adresse"
           value={a.address}
           href={`https://maps.google.com/?q=${encodeURIComponent(a.address)}`}
         />
       </div>
 
-      {/* Wi-Fi */}
-      {a.wifi && (
-        <div className="card">
-          <p className="section-title">Wi-Fi</p>
-          <Row icon={<Wifi size={16} />} label="Network" value={a.wifi.network} />
-          <Row icon={<Wifi size={16} />} label="Password" value={a.wifi.password} />
+      {/* Amenities */}
+      <div className="card">
+        <p className="section-title">Ausstattung</p>
+        <div className="grid grid-cols-2 gap-2">
+          {[
+            { emoji: "🚭", label: "Nichtraucher" },
+            { emoji: "🚿", label: "Eigenes Bad & Dusche" },
+            { emoji: "🍳", label: "Küche & Herd" },
+            { emoji: "❄️", label: "Kühlschrank" },
+            { emoji: "☕", label: "Kaffeemaschine" },
+            { emoji: "🍽️", label: "Spülmaschine" },
+            { emoji: "📺", label: "Flachbild-TV" },
+            { emoji: "🎬", label: "Streaming (Netflix)" },
+            { emoji: "🏙️", label: "Stadtblick" },
+            { emoji: "🔑", label: "Privater Eingang" },
+          ].map(({ emoji, label }) => (
+            <div key={label} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+              <span>{emoji}</span>
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
-      )}
+      </div>
 
-      {/* Host */}
-      {(a.hostName || a.hostPhone) && (
-        <div className="card">
-          <p className="section-title">Host</p>
-          {a.hostName && <Row icon={<Phone size={16} />} label="Name" value={a.hostName} />}
-          {a.hostPhone && (
-            <Row
-              icon={<Phone size={16} />}
-              label="Phone"
-              value={a.hostPhone}
-              href={`tel:${a.hostPhone}`}
-            />
-          )}
-        </div>
-      )}
-
-      {/* Booking link */}
-      {a.bookingLink && (
-        <div className="card">
-          <p className="section-title">Booking</p>
-          <Row
-            icon={<ExternalLink size={16} />}
-            label="Booking link"
-            value="Open reservation"
-            href={a.bookingLink}
-          />
-        </div>
-      )}
-
-      {/* Notes */}
-      {a.notes && (
-        <div className="card">
-          <p className="section-title">Notes</p>
-          <div className="flex items-start gap-3">
-            <StickyNote size={16} className="text-orange-400 mt-0.5 flex-shrink-0" />
-            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{a.notes}</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

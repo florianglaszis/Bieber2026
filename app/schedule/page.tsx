@@ -3,7 +3,7 @@ import type { Activity } from "@/types/trip";
 import { MapPin, ExternalLink, FileText } from "lucide-react";
 
 function formatDayHeader(isoDate: string) {
-  return new Date(isoDate).toLocaleDateString("en-GB", {
+  return new Date(isoDate).toLocaleDateString("de-DE", {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -28,20 +28,28 @@ function ActivityCard({ activity }: { activity: Activity }) {
         <p className="font-semibold text-gray-800 dark:text-gray-100 leading-snug">
           {activity.title}
         </p>
-        <p className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-          <MapPin size={11} className="flex-shrink-0" />
-          {activity.location}
-          {activity.mapLink && (
-            <a
-              href={activity.mapLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-1 text-orange-400 inline-flex items-center gap-0.5"
-            >
-              <ExternalLink size={11} />
-            </a>
-          )}
-        </p>
+        {activity.location && (
+          <p className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+            <MapPin size={11} className="flex-shrink-0" />
+            {activity.location}
+            {activity.mapLink && (
+              <a href={activity.mapLink} target="_blank" rel="noopener noreferrer" className="ml-1 text-orange-400 inline-flex items-center gap-0.5">
+                <ExternalLink size={11} />
+              </a>
+            )}
+          </p>
+        )}
+        {activity.location2 && (
+          <p className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+            <MapPin size={11} className="flex-shrink-0" />
+            {activity.location2}
+            {activity.mapLink2 && (
+              <a href={activity.mapLink2} target="_blank" rel="noopener noreferrer" className="ml-1 text-orange-400 inline-flex items-center gap-0.5">
+                <ExternalLink size={11} />
+              </a>
+            )}
+          </p>
+        )}
         {activity.notes && (
           <p className="flex items-start gap-1 text-xs text-gray-500 dark:text-gray-400 mt-1 italic">
             <FileText size={11} className="flex-shrink-0 mt-0.5" />
@@ -57,9 +65,9 @@ export default function SchedulePage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Schedule</h1>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Programm</h1>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-          {trip.schedule.length} days · tap map pins for directions
+          {trip.schedule.length} Tage · Kartenpins für Navigation antippen
         </p>
       </div>
 
